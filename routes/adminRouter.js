@@ -83,9 +83,9 @@ router.post('/addCategory',(request,response)=>{
             console.log("error: "+error);
         else{
             if(result)
-                   request.session.email ? response.render('adminaddCategory',{massage:'Category Added Successfully'}) : response.redirect('/admin'); 
+                   request.session.email ? response.render('adminHome.ejs',{email :request.session.email,msg:'Category Added Successfully'}) : response.redirect('/admin'); 
             else
-                    request.session.email ? response.render('/adminaddCategory',{message:'Error While Adding Category'}) : request.redirect('/admin');        
+                    request.session.email ? response.render('adminHome.ejs',{email :request.session.email,msg:'Error While Adding Category'}) : response.redirect('/admin');        
         }
     });
 });

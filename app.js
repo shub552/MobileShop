@@ -20,6 +20,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use('/customer',customerRouter);
 app.use('/admin',adminRouter);
 
-app.listen(3000,()=>{
+app.listen(4000,()=>{
     console.log('Server Running..!!!');
 });
