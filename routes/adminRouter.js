@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var ejs = require('ejs');
 var database = require('../dbconfig/db');
 var adminModel = require('../model/admin');
-const { request } = require('express');
+const { request, response } = require('express');
 //var mongoClient = require('mongodb').MongoClient;
 //var url = 'mongodb://localhost:27017/'
 
@@ -88,6 +88,43 @@ router.post('/addCategory',(request,response)=>{
                     request.session.email ? response.render('adminHome.ejs',{email :request.session.email,msg:'Error While Adding Category'}) : response.redirect('/admin');        
         }
     });
+});
+
+router.get('/adminupdatecategory/:_id',(request,response)=>{
+    if(request.session.email){
+    let data = {
+        _id:request.params._id
+    };
+    adminModel.category.findOne(data,(error,result)=>{
+        if(error)
+        console.log("Error",error);
+        else{
+            if(result)
+            {
+                console.log(result);
+            response.render('adminupdatecategory',{category : result});
+         } else
+            response.redirect('admin/adminviewcategory');
+        }
+    });
+}
+else{
+    response.redirect('admin');
+}
+});
+
+router.get('/addproduct',(request,response,next)=>{
+    if(request.session.email)
+    {
+        adminModel.category.find((error,categories)=>{
+            if(error)
+            console.log("Error"+error)
+            else
+            response.render('adminaddproduct',{categories : categories});
+        });
+    }
+    else
+    response.redirect('admin')
 });
 
 router.get('/logout',(request,response)=>{
