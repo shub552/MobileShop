@@ -86,17 +86,19 @@
 
     </div>
   </header><!-- End Header -->
-
+  <br><br><br><br>
   <form action="/admin/adminupdatecategory" method="POST">
-        <input id="inputfield" required value="<%=category._id%>" type="hidden" name="_id" id="_id">
-        <div id="inputid">
-        <input id='inputfield' value="<%=category.cname%>" required type="text" name="category" id="category" placeholder="Enter Category name">
-      </div>
+        <input  required value="<%=category._id%>" type="hidden" name="_id" id="_id">
+        
+        <input  value="<%=category.cname%>" required type="text" name="category" id="category" placeholder="Enter Category name">
       <br>
-      <input id="inputbtn"  type="submit" value="Update Category">
-  </form>
+      <%= message%>
+      <input type="submit" value="Update Category">
 
-  </main><!-- End #main -->
+  </form>
+  
+<h1>helllo</h1>
+<!-- End #main -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
   <div id="preloader"></div>

@@ -5,7 +5,7 @@ var database = require('../dbconfig/db');
 var adminModel = require('../model/admin');
 var customer = require('../model/customer');
 var mailer = require('./mailerRouter');
-const { request } = require('express');
+
 
 
 
@@ -51,13 +51,15 @@ router.post('/login',(request,response)=>{
         }
         if(result)
         {
+            
             request.session.email=request.body.email;
             request.session.save();
             response.render('customerHome',{email : request.session.email,message:result._id});
         }
         else
         {
-            response.render('customer',{message:"Email or password is Wrong"});
+            console.log("Check : ",result);
+            response.render('index',{message:""});
         }
     })
 });
@@ -67,6 +69,7 @@ router.post('/registration',(request,response)=>{
         name:request.body.name,
         _id:request.body.email,
         password:request.body.password,
+        address:request.body.address,
         verify:"Not Verify"
     }
     console.log(data);

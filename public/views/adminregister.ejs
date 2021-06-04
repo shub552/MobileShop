@@ -89,33 +89,30 @@
 
     <thead>
         <tr>
-            <th>Category id</th>
-            <th>Category Name</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Customer id</th>
+            <th>Customer Name</th>
+            <th>Customer Address</th>
         </tr>
     </thead>
     <tbody>
-      <% for(index in categories){%>
+      <% for(index in customer){%>
       <tr align="center">
-        <td><%= categories[index]._id %></td>
-        <td><%= categories[index].cname %></td>
-        <td><a onclick="return confirm('Do you want to update category ? ')" href='/admin/adminupdatecategory/<%=categories[index]._id%>'>Update</a></td>
-        <td><a onclick="return confirm ('Do you want to delete category ?')" href="/admin/admindeletecategory/<%=categories[index]._id%>">Delete</a></td>
+        <td><%= customer[index]._id %></td>
+        <td><%= customer[index].name %></td> 
+        <td><%= customer[index].address %></td>
       </tr>
       <%}%>
       </tbody>
     </tbody>
     <tfoot>
     <tr>
-        <th>Category Id</th>
-            <th>Category Name</th>
-            <th>Update</th>
-        <th>Delete</th>    
+        <th>Customer Id</th>
+            <th>Customer Name</th>
+            <th>Customer Address</th>
         </tr>
     </tfoot>
       </table>
-      <%= message%>
+      
 
   </main><!-- End #main -->
 

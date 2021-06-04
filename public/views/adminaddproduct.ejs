@@ -87,7 +87,8 @@
     </div>
   </header><!-- End Header -->
 
-  <form action="/admin/adminaddproduct" method="POST">
+  <br><br><br><br>
+  <form action="/admin/adminaddproduct" method="POST" enctype="multipart/form-data">
         
     <div id='inputid'>
         <select required id='inputfield'  name='category' id='category'>
@@ -107,12 +108,12 @@
    <div id='inputid'>
        <input  id='inputfield'  required type='number' min=0 name='quantity' id='quantity' placeholder="Enter Quantity">
    </div>
-       <input  id='inputfield'  required type='file' name='myImage' id='myImage' >
+       <input  id='inputfield'  required type='file' name='img1' id='img1' >
 
    <br><input id='inputbtn' type='submit' value='Add Product'>
   </form>
 
-  </main><!-- End #main -->
+ <!-- End #main -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
   <div id="preloader"></div>

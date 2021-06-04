@@ -1465,6 +1465,38 @@ section {
   color: #e82d2d;
 }
 
+/*input field start*/
+/* #inputfield{
+	border:none;
+	margin: 5px;
+	height: 25px;
+	width: 260px;
+	font-size: 14px;
+}
+#inputbtn{
+	border:none;
+	height: 30px;
+	width: 260px;
+	border-radius: 2px;
+	color:white;
+	background-color: #3FA43A;
+	margin-top: 10px;
+}
+
+input:focus, select:focus{
+	outline: none;
+}
+#inputid
+{
+	width: 260px;
+	border-top:0px;
+	border-right:0px;
+	border-bottom:1px;
+	border-left:0px;
+	border-style: solid;
+margin-bottom: 10px;
+} */
+
 @media (max-width: 575px) {
   #footer .footer-top .footer-info {
     margin: -20px 0 30px 0;
