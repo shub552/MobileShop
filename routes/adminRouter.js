@@ -308,6 +308,44 @@ router.get('/adminregister',(request,response)=>{
   // response.render('adminregister');
 });
 
+//Remove Customer
+router.get('/deletecustomer/:email',(req,res,next)=>{
+  if(req.session.email)
+  {
+      let email=req.params.email;
+      let data={
+        _id : email
+     };
+      customer.deleteOne(data,(error,result)=>{
+          if(error)
+            console.log('Error : '+error);
+          else
+          {
+            if(result.deletedCount==1)
+            {
+                customer.find((error,customer)=>{
+                  if(error)
+                    console.log('Error : '+error);
+                  else
+                    res.render('adminregister',{customer : customer,message : 'Customer deleted successfully'});
+                });
+            }
+            else
+            {
+              customer.find((error,customer)=>{
+                if(error)
+                  console.log('Error : '+error);
+                else
+                  res.render('adminregister',{customer : customer,message : 'Error While Deleting customer'});
+              });
+            }
+          }
+      });
+  }
+  else
+  res.redirect('/admin');
+});
+
 
 router.get('/logout',(request,response)=>{
     request.session.email='';

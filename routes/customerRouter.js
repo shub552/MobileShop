@@ -47,20 +47,27 @@ router.post('/login',(request,response)=>{
         console.log("Error"+error)
         else
         {
-            console.log(result)
+            if(result)
+            {
+                let str=result.verify;
+                if(str.localeCompare('Not Verify')==0)
+                {
+                        response.render('index',{message : 'Check mail to Verify Account '}); 
+                }
+                else
+                {
+                request.session.email=request.body.email;
+                request.session.save();
+                response.render('customerHome',{email : request.session.email,message:result._id});
+                }
+            }
+            else
+            {
+                console.log("Check : ",result);
+                response.render('index',{message:"Email or Password you Entered is Wrong "});
+            }
         }
-        if(result)
-        {
-            
-            request.session.email=request.body.email;
-            request.session.save();
-            response.render('customerHome',{email : request.session.email,message:result._id});
-        }
-        else
-        {
-            console.log("Check : ",result);
-            response.render('index',{message:""});
-        }
+       
     })
 });
 

@@ -92,6 +92,7 @@
             <th>Customer id</th>
             <th>Customer Name</th>
             <th>Customer Address</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -100,6 +101,7 @@
         <td><%= customer[index]._id %></td>
         <td><%= customer[index].name %></td> 
         <td><%= customer[index].address %></td>
+        <td><a onclick="return confirm ('Do you want to delete customer ?')" href="/admin/deletecustomer/<%=customer[index]._id%>">Delete</a></td>
       </tr>
       <%}%>
       </tbody>
@@ -109,6 +111,7 @@
         <th>Customer Id</th>
             <th>Customer Name</th>
             <th>Customer Address</th>
+            <th>Delete</th>
         </tr>
     </tfoot>
       </table>
